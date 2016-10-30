@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Download Sorter</title>
+<script src="dist/js/jquery-2.1.1.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="options.js"></script>
+<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="dist/css/bootstrap-theme.css">
+</head>
+<body>
+	<div class="col-md-6 col-md-offset-3">
+	    <h1>Download Sorter</h1>
+	    
+		<table id="rules" class="table">
+	        <thead>
+	            <tr>
+	                <th class="col-md-1">#</th>
+	                <th class="col-md-5">Extension</th>
+	                <th class="col-md-5">Folder Name</th>
+	                <th class="col-md-1">
+	                    <button type="button" id="new" class="btn btn-default btn-sm">
+	                        <span class="glyphicon glyphicon-plus"></span>
+	                    </button>
+	                </th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr>
+	                <td>0</td>
+	                <td><input type="text" class="form-control input-sm extension" disabled="disabled" value="Unclassified"></td>
+	                <td><input type="text" id="defaultFolder" class="form-control input-sm foldername" value=""></td>
+	                <td>
+	                    <button type="button" class="btn btn-danger btn-sm" disabled="disabled">
+	                        <span class="glyphicon glyphicon-remove"></span>
+	                    </button>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+
+	    <table class="hidden">
+	        <tr id="rule-template" class="hidden">
+	            <td class="number"></td>
+	            <td><input type="text" class="extension form-control input-sm extension"></td>
+	            <td><input type="text" class="foldername form-control input-sm foldername"></td>
+	            <td>
+	                <button type="button" class="remove btn btn-danger btn-sm">
+	                    <span class="glyphicon glyphicon-remove"></span>
+	                </button>
+	            </td>
+	        </tr>
+	    </table>
+	
+	</div>
+</body>
+</html>
