@@ -23,8 +23,8 @@ chrome.runtime.onInstalled.addListener(function(details){
 		});
 		chrome.storage.sync.get('rules', function (items) {
 			if(typeof items.rules == 'undefined') {
-				localStorage.rules = JSON.stringify([{"extension":"jpg,jpeg,gif,png","foldername":"images"},{"extension":"zip,tar,gz","foldername":"compression"},{"extension":"pdf,hwp,doc,docx","foldername":"document"},{"extension":"z*","foldername":"z_start_all_file"}]);
-				chrome.storage.sync.set({'rules': JSON.stringify() });
+				localStorage.rules = JSON.stringify([{"extension":"jpg,jpeg,gif,png","foldername":"images"},{"extension":"zip,z7,tar,gz","foldername":"compression"},{"extension":"exe","foldername":"exe"},{"extension":"pdf,hwp,doc,docx","foldername":"document"},{"extension":"z*","foldername":"z_start_all_file"}]);
+				chrome.storage.sync.set({'rules': JSON.stringify([{"extension":"jpg,jpeg,gif,png","foldername":"images"},{"extension":"zip,z7,tar,gz","foldername":"compression"},{"extension":"exe","foldername":"exe"},{"extension":"pdf,hwp,doc,docx","foldername":"document"},{"extension":"z*","foldername":"z_start_all_file"}]) });
 			}else {
 				localStorage.rules = items.rules;
 			}
