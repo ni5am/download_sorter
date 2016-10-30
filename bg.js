@@ -34,10 +34,18 @@ chrome.runtime.onInstalled.addListener(function(details){
     }else if(details.reason == "update"){
 
 		chrome.storage.sync.get('defaultFolder', function (items) {
-			localStorage.defaultFolder = items.defaultFolder;
+			if(typeof items.defaultFolder == 'undefined') {
+				chrome.storage.sync.set({'defaultFolder': localStorage.defaultFolder});
+			}else {
+				localStorage.defaultFolder = items.defaultFolder;
+			}
 		});
 		chrome.storage.sync.get('rules', function (items) {
-			localStorage.rules = items.rules;
+			if(typeof items.rules == 'undefined') {
+				chrome.storage.sync.set({'rules': localStorage.rules});
+			}else {
+				localStorage.rules = items.rules;
+			}
 			chrome.tabs.create({url: "options.html"});
 		});
     }
@@ -64,7 +72,7 @@ function matches(extension, filename) {
 
 		extensionSplit = extensionLower.split('|');
 
-		temp = ";"
+		temp = "";
 		index = 0;
 		extensionSplit.forEach(function(element) {
 			if(index != 0)
